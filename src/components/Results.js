@@ -1,6 +1,6 @@
 function Results() {
   return (
-    <div className="App">
+    <div>
       <h1>RESULTS</h1>
     </div>
   );
