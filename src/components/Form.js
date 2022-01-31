@@ -18,16 +18,22 @@ export default function Form({ idx }) {
   }
 
   return <>
-    <label htmlFor={`height${idx}`}>Altura: </label>
-    <input id={`height${idx}`} name='height' type="number" />
+    <div>
+      <label htmlFor={`height${idx}`}>Altura: </label>
+      <input id={`height${idx}`} name='height' type="number" />
+    </div>
 
-    <label htmlFor={`width${idx}`}>Largura: </label>
-    <input id={`width${idx}`} type="number" />
+    <div>
+      <label htmlFor={`width${idx}`}>Largura: </label>
+      <input id={`width${idx}`} type="number" />
+    </div>
 
-    <label htmlFor={`check${idx}`}>Contem portas ou janelas?</label>
-    <input onChange={ handleToggle } id={`check${idx}`}  type='checkbox' />
+    <div>
+      <label htmlFor={`check${idx}`}>Contem portas ou janelas?</label>
+      <input onChange={ handleToggle } id={`check${idx}`}  type='checkbox' />
+    </div>
 
-    <div style={{ display: toggle[`check${idx}`] ? 'block' : 'none' }}>
+    <div style={{ display: toggle[`check${idx}`] ? 'flex' : 'none' }}>
       <label  htmlFor={`port${idx}`}>Numero de portas: </label>
       <select id={`port${idx}`} name="port">
         <option value=""></option>

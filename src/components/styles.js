@@ -9,13 +9,21 @@ const SectionCards = styled.div`
   align-items: center;
   width: 100%;
   height: 400px;
-  background: red;
+  background: lightblue;
 `;
 
 const SingleCard = styled.article`
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
   border: 3px solid black;
   width: 300px;
   height: 350px;
+  align-items: center;
+  div {    
+    width: 300px;
+    flex-wrap: wrap;
+  }
 
 `
 
