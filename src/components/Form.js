@@ -1,11 +1,39 @@
 import React, { useState } from 'react';
 
 export default function Form({ idx }) {
+  
   const [toggle, SetToggle] = useState({
     check1: false,
     check2: false,
     check3: false,
     check4: false,
+  });
+
+  const [formState, setFormState] = useState({
+    wall1: {
+      window: '',
+      port: '',
+      width: '',
+      height: '',
+    },
+    wall2: {
+      window: '',
+      port: '',
+      width: '',
+      height: '',
+    },
+    wall3: {
+      window: '',
+      port: '',
+      width: '',
+      height: '',
+    },
+    wall4: {
+      window: '',
+      port: '',
+      width: '',
+      height: '',
+    },
   });
 
   const handleToggle = (e) => {
@@ -17,15 +45,31 @@ export default function Form({ idx }) {
     });
   }
 
+  const handleChange = (e) => {
+    const id = e.target.id;
+    const name = e.target.name;
+    const value = Number(e.target.value);
+
+    setFormState(state => {
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          [name]: value
+        }
+      }
+    });
+  }
+
   return <>
     <div>
-      <label htmlFor={`height${idx}`}>Altura: </label>
-      <input id={`height${idx}`} name='height' type="number" />
+      <label htmlFor={`wall${idx}`}>Altura: </label>
+      <input value={formState[`wall${idx}`].height} onChange={ handleChange } id={`wall${idx}`} name='height' type="number" />
     </div>
 
     <div>
-      <label htmlFor={`width${idx}`}>Largura: </label>
-      <input id={`width${idx}`} type="number" />
+      <label htmlFor={`wall${idx}`}>Largura: </label>
+      <input value={formState[`wall${idx}`].width}  onChange={ handleChange } id={`wall${idx}`} type="number" name='width' />
     </div>
 
     <div>
