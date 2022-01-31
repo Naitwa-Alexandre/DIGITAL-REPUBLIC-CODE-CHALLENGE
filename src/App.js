@@ -1,6 +1,5 @@
 import './App.css';
 import DigitalSection from './pages/DigitalSection';
-import { FormProvider } from './context/GlobalContext';
 
 function App() {
   return (

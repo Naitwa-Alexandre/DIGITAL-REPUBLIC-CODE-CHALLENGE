@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useGlobalContext } from '../context';
 
 export default function Form({ idx }) {
+  const data = useGlobalContext();
+
+  console.log(data);
   
   const [toggle, SetToggle] = useState({
     check1: false,
@@ -60,6 +64,8 @@ export default function Form({ idx }) {
       }
     });
   }
+
+  console.log(formState);
 
   return <>
     <div>
