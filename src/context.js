@@ -1,4 +1,5 @@
 import React, { useState, useContext, createContext } from 'react';
+import { checkRootSquad, inkCalc } from './assets/utils';
 
 const AppContext = createContext();
 
@@ -62,16 +63,23 @@ const AppProvider = ({ children }) => {
     });
   }
 
-  console.log(formState);
+  const handleClick = (e) => {
+    e.preventDefault();
+    //validacao de metros quadrados
+    const rootSquadChecked = checkRootSquad(formState);
+    //calculo de metros quadrados
+    inkCalc(rootSquadChecked);
+  }
   
   return <AppContext.Provider
     value={{
       formState,
-      setFormState,
       toggle,
+      setFormState,
       setToggle,
       handleToggle,
       handleChange,
+      handleClick,
     }}
   >
     {children}

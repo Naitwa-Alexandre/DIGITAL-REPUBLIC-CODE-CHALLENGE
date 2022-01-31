@@ -26,5 +26,8 @@ const SingleCard = styled.article`
   }
 
 `
+const Button = styled.button`
 
-export { SectionCards, WrapperCards, SingleCard };
+`;
+
+export { SectionCards, WrapperCards, SingleCard, Button };
