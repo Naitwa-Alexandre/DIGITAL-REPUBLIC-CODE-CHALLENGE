@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const WrapperCards = styled.div`
+const Wrapper = styled.div`
   margin-top: 100px;
 `
 const SectionCards = styled.div`
@@ -9,7 +9,6 @@ const SectionCards = styled.div`
   align-items: center;
   width: 100%;
   height: 400px;
-  background: lightblue;
 `;
 
 const SingleCard = styled.article`
@@ -30,4 +29,4 @@ const Button = styled.button`
 
 `;
 
-export { SectionCards, WrapperCards, SingleCard, Button };
+export { SectionCards, Wrapper, SingleCard, Button };

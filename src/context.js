@@ -4,6 +4,10 @@ import { checkRootSquad, inkCalc } from './assets/utils';
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+  const [result, setResult] = useState(0);
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState(null);
+
   const [toggle, setToggle] = useState({
     check1: false,
     check2: false,
@@ -48,16 +52,14 @@ const AppProvider = ({ children }) => {
   }
 
   const handleChange = (e) => {
-    const id = e.target.id;
-    const name = e.target.name;
-    const value = Number(e.target.value);
+    const { id, name, value } = e.target;
 
     setFormState(state => {
       return {
         ...state,
         [id]: {
           ...state[id],
-          [name]: value
+          [name]: Number(value)
         }
       }
     });
@@ -65,16 +67,23 @@ const AppProvider = ({ children }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    //validacao de metros quadrados
-    const rootSquadChecked = checkRootSquad(formState);
-    //calculo de metros quadrados
-    inkCalc(rootSquadChecked);
+    const rootSquadChecked = checkRootSquad(formState, setError);
+    if (typeof rootSquadChecked == 'string') {
+      setError(rootSquadChecked);
+    } else {
+      const finalResult = inkCalc(rootSquadChecked);
+      setResult(finalResult);
+    }
+    setShow(true);
   }
   
   return <AppContext.Provider
     value={{
       formState,
       toggle,
+      result,
+      show,
+      error,
       setFormState,
       setToggle,
       handleToggle,

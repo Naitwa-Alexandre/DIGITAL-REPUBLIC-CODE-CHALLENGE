@@ -11,12 +11,23 @@ const checkRootSquad = (args) => {
   if (resultRootSquad) {
     return args;
   } else {
-    console.log('As paredes devem ter no minimo 1 metro quadrado e no maximo 15 metros quadrados');
+    return 'As paredes devem ter no minimo 1 metro quadrado e no maximo 15 metros quadrados';
   }
 }
 
+const findRootSquad = (args) => ({
+  ...args,
+  rootSquad: args.width * args.height
+});
+
 const inkCalc = (args) => {
   const arrayArgs = Object.values(args);
+  const rootSquadPerInk = 5;
+
+  const rootSquadTotal = arrayArgs.map(findRootSquad)
+    .reduce((acc, cur) => acc + cur.rootSquad, 0);
+
+  return rootSquadTotal / rootSquadPerInk;
 }
 
 export { checkRootSquad, inkCalc };

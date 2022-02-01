@@ -1,7 +1,10 @@
+import { useGlobalContext } from "../context";
+
 function Results() {
+  const { result, error } = useGlobalContext();
   return (
     <div>
-      <h1>RESULTS</h1>
+      { error || <p>A sua reforma vai precisar de {result}L de tinta</p>}
     </div>
   );
 }
