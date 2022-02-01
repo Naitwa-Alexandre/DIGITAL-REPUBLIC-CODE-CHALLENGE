@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin-top: 100px;
+  margin-top: 32px;
 `
 const SectionCards = styled.div`
   display: flex;
@@ -26,7 +26,15 @@ const SingleCard = styled.article`
 
 `
 const Button = styled.button`
-
+  margin-top: 32px;
+  width: 200px;
+  height: 32px;
+  font-size: 16px;
 `;
 
-export { SectionCards, Wrapper, SingleCard, Button };
+const ResultWraper = styled.div`
+  margin-top: 52px;
+  font-size: 22px;
+`
+
+export { SectionCards, Wrapper, SingleCard, Button, ResultWraper };
